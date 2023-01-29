@@ -1,0 +1,25 @@
+﻿@using RecipeBizObjects;
+@model List<BizRecipe>
+@{
+    ViewData["Title"] = "Recipe Index";
+    BizRecipe rec = Model[0];
+}
+    <div class = "row">
+        <div class = "col-md-12; text-center">
+        </div>
+        <br />
+    </div>
+            @foreach(BizRecipe r in Model)
+            {
+                <div class = "card" style = "width:500px">
+                    <div class = "card-header text-center bg-light" >@Html.ActionLink(r.RecipeName,"RecipeDetail",  new{code = r.Code} )</div>
+                  <img class = "card-body"  src = "Images/@(r.ImageCode.ToString()).jpg"/>
+                </div>  
+                
+            }
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+﻿@model RecipeBizObjects.BizRecipe
+
+@{
+    ViewData["Title"] = "Delete";
+    string errormsg = @ViewBag.ErrorMessage;
+}
+
+<h1>Delete @Model.RecipeName</h1>
+
+    @if(string.IsNullOrEmpty(errormsg) == false)
+{
+    <h2 class = "text-danger">@ViewBag.ErrorMessage</h2>
+}
+else
+{
+    <h3>Are you sure you want to delete @Model.RecipeName?</h3>
+}
+ 
+    
+    <form asp-action="Delete">
+        @Html.HiddenFor(model => model.RecipeId)
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+
